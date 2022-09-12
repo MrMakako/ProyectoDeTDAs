@@ -117,6 +117,24 @@ int ListaEnlazada::Localiza(Object* _obj)
 
 void ListaEnlazada::Imprimir()
 {
+
+	Nodo* Actual = NodoInicial;
+
+
+	while (Actual != nullptr) {
+		
+		
+		std::cout<<Actual->getItem()->toString();
+		Actual = Actual->getSiguiente();
+	
+	
+	
+	}
+
+
+
+
+
 }
 
 Object* ListaEnlazada::Obtener(int pos)
@@ -168,4 +186,18 @@ bool ListaEnlazada::anula()
 	}
 
 	return false;
+}
+
+bool ListaEnlazada::equals(Object* _obj)
+{
+	return false;
+}
+
+std::string ListaEnlazada::toString()
+{
+	return std::string();
+}
+
+void ListaEnlazada::imprimir()
+{
 }

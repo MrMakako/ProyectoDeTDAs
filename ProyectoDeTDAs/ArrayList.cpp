@@ -112,7 +112,7 @@ void ArrayList::Imprimir()
 
 
 		Array[i];
-		std::cout << " Elemento " << i << std::endl;
+		std::cout << Array[i]->toString() << i << std::endl;
 	
 	}
 
@@ -215,6 +215,20 @@ bool ArrayList::anula()
 	std::cout << "La lista ha sido vaciada\n";
 
 	return true;
+}
+
+bool ArrayList::equals(Object* _obj)
+{
+	return false;
+}
+
+std::string ArrayList::toString()
+{
+	return std::string();
+}
+
+void ArrayList::imprimir()
+{
 }
 
 

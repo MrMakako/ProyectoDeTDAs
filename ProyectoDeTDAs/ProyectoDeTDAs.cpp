@@ -4,7 +4,7 @@
 #include <iostream>
 #include"ArrayList.h"
 #include "ListaEnlazada.h"
-
+#include "Alumno.h"
 int main()
 {
     std::cout << "Hello World!\n";
@@ -14,27 +14,39 @@ int main()
 
 
     ArrayList Lista1 = ArrayList();
-    Object* Objeto = new Object();
+
+
+    Alumno* Alumno1 = new Alumno(123,"Erick solivan");
+    Alumno* Alumno2 = new Alumno(124, "Erick Salander");
+    Alumno* Alumno3 = new Alumno(125, "Erick Mawaki");
+
+
+
     ListaEnlazada List2=ListaEnlazada();
 
-   // Lista1.Inserta(Objeto,1);
-//Lista1.Inserta(Objeto, 2);
-  //  Lista1.Inserta(Objeto, 3);
-
-    List2.Inserta(Objeto,1);
+ 
+    List2.Inserta(Alumno1,1);
 
 
-    List2.Inserta(Objeto, 1);
+    List2.Inserta(Alumno2, 2);
 
-    List2.Inserta(Objeto, 2);
+    List2.Inserta(Alumno3, 3);
    
 
- //  Lista1.suprime(Lista1.Localiza(Lista1.Obtener(1)));
+    List2.Imprimir();
+
+    Lista1.Inserta(Alumno1, 1);
+    Lista1.Inserta(Alumno2, 2);
+    Lista1.Inserta(Alumno3, 3);
+
+    std::cout << "ARRAYLISTEXAMPLE-------\n";
+    Lista1.Imprimir();
+  Lista1.suprime(Lista1.Localiza(Lista1.Obtener(1)));
 
 
-   // Lista1.Imprimir();
+    Lista1.Imprimir();
 
-  //  Lista1.suprime(2);
+    Lista1.suprime(2);
 
    // Lista1.Imprimir();
 

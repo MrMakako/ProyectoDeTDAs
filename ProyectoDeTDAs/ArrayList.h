@@ -19,6 +19,11 @@ public:
 	 Object* ObtenerAnterior(int pos);
 	 bool EstaVacia()override ;
 	 bool anula();
+	bool equals(Object* _obj)override;
+
+	std::string toString() override;
+
+	 void imprimir()override;
 
 private:
 
