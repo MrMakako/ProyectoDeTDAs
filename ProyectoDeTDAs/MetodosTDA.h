@@ -7,6 +7,7 @@ class MetodosTDA
 
 public:
 
+
 	virtual int Localiza(Object*_obj)=0;
 	virtual void Imprimir() = 0;
 	virtual bool EstaVacia() = 0;

@@ -12,10 +12,10 @@ public:
 
 
 	public:
-		bool equals(Object* _obj);
+	virtual bool equals(Object* _obj)=0;
 
-std::string toString();
-	void imprimir();
+	virtual std::string toString()=0;
+	virtual void imprimir()=0;
 
 	//150//
 
