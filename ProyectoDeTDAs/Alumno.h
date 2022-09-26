@@ -15,6 +15,13 @@ public:
 	Alumno(int _ID,std::string _NombreAlumno);
 	
 
+	std::string toString()override;
+
+	bool equals(Object* _obj)override;
+
+	void imprimir() override;
+
+
 
 private:
 
@@ -23,13 +30,6 @@ private:
 	
 
 	std::string NombreAumno;
-	std::string toString()override;
-
-	 bool equals(Object* _obj)override;
-	
-	 void imprimir() override;
-
-
 
 
 

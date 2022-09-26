@@ -90,7 +90,7 @@ int ArrayList::Localiza(Object* _obj)
 {
 
 	for (int i = 0; i < ultimo; i++) {
-		if (Array[i] == _obj) {
+		if (Array[i]->equals(_obj)) {
 		
 			return i + 1;
 		}

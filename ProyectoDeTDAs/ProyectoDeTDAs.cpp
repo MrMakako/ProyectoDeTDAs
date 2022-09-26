@@ -5,10 +5,175 @@
 #include"ArrayList.h"
 #include "ListaEnlazada.h"
 #include "Alumno.h"
+#include<string>
+int opcion;
+
+bool MenuListas(int n, ArrayList* _ArrayList, ListaEnlazada* _ListaEnlazda) {
+
+    std::cout << "Operaciones de Listas\n"
+     <<"1. Insertar Elemento\n"
+     <<"2. Imprimir Elementos\n"
+     <<"3. Buscar Elemento\n"
+     <<"6. Obtener Elemento por Posición\n"
+     <<"7. Obtener Siguiente"
+     << "8. Obtener Anterior"
+     << "9. Borrar todos los Elementos(Anula)\n"
+     << "10. Regresar al Menú Principal\n ";
+
+
+
+    int opt=0;
+    std::cout<< "Inserte su opcion>>";
+    std::cin >> opt;
+    while (opt < 0 || opt>10) {
+    
+        std::cout << "Inserte una opcion valida, un numero del 1 al 10 opcion>>";
+        std::cin >> opt;
+    }
+    switch (opt)
+    {
+
+    case 1: {
+        std::cout << "Nombre del alumno:>>";
+        std::string nombre=nullptr;
+        std::cin>>nombre;
+        int id = 0;
+        std::cout << "Identidad del alumno:>>";
+        std::cin >> id;
+        int pos = 0;
+
+
+        std::cout << "posicion para insertar el alumno>>";
+        std::cin >> pos;
+ 
+
+        Alumno* NuevoAlumno = new Alumno(id, nombre);
+        if (n == 1) {
+
+            if (_ArrayList->Localiza(NuevoAlumno)>0) {
+                //ya esta en la lista
+                break;
+            }
+      
+            _ArrayList->Inserta(NuevoAlumno, pos);
+         
+            
+        }
+        else {
+            
+            
+
+
+
+            if (_ListaEnlazda->Localiza(NuevoAlumno)>0) {
+                //ya esta en la lista
+                break;
+            }
+            _ListaEnlazda->Inserta(NuevoAlumno, pos);
+
+        
+        }
+        break;
+
+
+    }
+    case 2: {
+    
+        if (n == 1) {
+            _ArrayList->Imprimir();
+        }
+        else {
+
+            _ListaEnlazda->Imprimir();
+        }
+        break;
+    }
+      case3: {
+
+
+          int id = 0;
+          std::cout << "Id del alumno a buscar:";
+          std::cin >> id;
+          Alumno* Alumno_Buscar=new Alumno(id,"");
+    
+          if (n == 1) {
+               Alumno_Buscar=(Alumno*)_ArrayList->Obtener(_ArrayList->Localiza(Alumno_Buscar));
+          }
+          else {
+
+              Alumno_Buscar = (Alumno*)_ListaEnlazda->Obtener(_ListaEnlazda->Localiza(Alumno_Buscar));
+
+          }
+
+          if (Alumno_Buscar != nullptr) {
+          
+              std::cout << Alumno_Buscar->toString()<<"\n";
+          }
+          break;
+    }
+    default:
+        break;
+    }
+ 
+
+    return false;
+
+}
+
+
+
 int main()
 {
     std::cout << "Hello World!\n";
 
+
+    opcion = 0;
+
+    //La opcion sera igual a 4 mientras termino el resot 
+  
+
+
+    while (opcion != 4) {
+    
+
+
+        std::cout << "Menú Principal\n"<<
+           " 1.Trabajar con Listas\n" <<"2.Trabajar con Pilas\n"<<
+           " 3.Trabajar con Colas\n"<<
+           "4.Salir \n";
+        std::cout << "opcion>>";
+        std::cin >> opcion;
+         
+        
+        switch (opcion)
+        {
+
+
+        case 1:
+
+
+            std::cout << "Menu Tipo Lista:\n"
+                <<"1.trabjar con ArrayList\n"
+                << "2.Trabajar con LinkedList\n";
+
+
+
+
+
+
+        default:
+            break;
+        }
+
+
+
+    
+    
+    
+    
+    
+    
+    }
 
 
 
@@ -19,6 +184,7 @@ int main()
     Alumno* Alumno1 = new Alumno(123,"Erick solivan");
     Alumno* Alumno2 = new Alumno(124, "Erick Salander");
     Alumno* Alumno3 = new Alumno(125, "Erick Mawaki");
+
 
 
 
@@ -48,7 +214,7 @@ int main()
 
     Lista1.suprime(2);
 
-   // Lista1.Imprimir();
+    Lista1.Imprimir();
 
 
 }

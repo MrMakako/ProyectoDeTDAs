@@ -18,11 +18,20 @@ Alumno::Alumno(int _ID, std::string _NombreAlumno)
 
 bool Alumno::equals(Object* _obj)
 {
-	return false;
+
+	Alumno* AlumnoC= (Alumno*)_obj;
+	return ID;
 }
 
 void Alumno::imprimir()
 {
+
+
+
+
+
+
+
 }
 
 std::string Alumno::toString()

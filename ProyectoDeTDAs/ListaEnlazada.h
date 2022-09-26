@@ -23,7 +23,7 @@ public:
 	bool anula()override;
 	 bool equals(Object* _obj)override;
 
- std::string toString() override;
+	std::string toString() override;
 	 void imprimir()  override;
 
 private:
