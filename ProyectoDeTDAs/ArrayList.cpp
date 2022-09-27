@@ -141,7 +141,7 @@ Object* ArrayList::Obtener(int pos)
 	}
 	//Fuera de rango
 
-	std::cout << "Fuera de Rango\n";
+	std::cout << "Fuera de Rango imposible obtener ese valor \n";
 
 
 
@@ -188,10 +188,10 @@ Object* ArrayList::ObtenerAnterior(int pos)
 
 
 	}
-	if ((pos -2) >0) {
+	if ((pos -1) >0) {
 
 
-
+		return Obtener(pos - 1);
 
 	};
 	return nullptr;

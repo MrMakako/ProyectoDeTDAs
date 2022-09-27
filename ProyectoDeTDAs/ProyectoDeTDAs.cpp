@@ -3,22 +3,67 @@
 
 #include <iostream>
 #include"ArrayList.h"
+#include "ArrayStack.h"
+#include "LinkStack.h"
 #include "ListaEnlazada.h"
 #include "Alumno.h"
 #include<string>
 int opcion;
+bool MenuPilas(int n,ArrayStack* _ArrayStack,LinkStack * _LinkStack) {
+    std::cout << "Operaciones de Listas\n"
+        << "1. “Empujar” (push)\n"
+        << "2. 'Sacar'(pop) \n"
+        << "3. Ver tope\n"
+        << "4. Ver si esta vacia\n"
+        << "5. Imprimir Elementos\n"
+        << "6. regresar al menu principal\n ";
 
+
+
+    int opt = 0;
+    std::cout << "Inserte su opcion>>";
+    std::cin >> opt;
+    while (opt < 0 || opt>6) {
+
+        std::cout << "Inserte una opcion valida, un numero del 1 al 6 opcion>>";
+        std::cin >> opt;
+        std::cin.clear();
+    }
+
+
+
+
+    switch (opt)
+    {
+
+    case 1: {
+
+
+        
+        std:
+        _ArrayStack->Mete();
+        
+
+        break;
+    
+    }
+    default:
+        break;
+    }
+
+
+}
 bool MenuListas(int n, ArrayList* _ArrayList, ListaEnlazada* _ListaEnlazda) {
 
     std::cout << "Operaciones de Listas\n"
-        << "1. Insertar Elemento\n"
-        << "2. Imprimir Elementos\n"
-        << "3. Buscar Elemento\n"
-        << "4. Borrar Elemento\n"
-        << "5.Ver si esta vacia\n"
+     << "1. Insertar Elemento\n"
+     << "2. Imprimir Elementos\n"
+     << "3. Buscar Elemento\n"
+     << "4. Borrar Elemento\n"
+     << "5. Ver si esta vacia\n"
      <<"6. Obtener Elemento por Posición\n"
-     <<"7. Obtener Siguiente"
-     << "8. Obtener Anterior"
+     <<"7. Obtener Siguiente\n"
+     << "8. Obtener Anterior\n"
      << "9. Borrar todos los Elementos(Anula)\n"
      << "10. Regresar al Menú Principal\n ";
 
@@ -186,19 +231,26 @@ bool MenuListas(int n, ArrayList* _ArrayList, ListaEnlazada* _ListaEnlazda) {
         int pos = 0;
         std::cout << "Posicion del elemento>>";
         std::cin >> pos;
+        Object* obj=nullptr;
         if (n == 1) {
 
-            _ArrayList->ObtenerSiguiente(pos)->imprimir();
+            obj=_ArrayList->ObtenerSiguiente(pos);
+
 
         }
         else {
 
-            _ListaEnlazda->ObtenerSiguiente(pos)->imprimir();
+            obj=_ListaEnlazda->ObtenerSiguiente(pos);
 
 
 
         }
-
+        if (obj != nullptr) {
+            obj->imprimir();
+            break;
+        
+        }
+        std::cout << "Se ha salido del rango de la lista !!!\n";
     
         break;
     }
@@ -206,18 +258,26 @@ bool MenuListas(int n, ArrayList* _ArrayList, ListaEnlazada* _ListaEnlazda) {
         int pos = 0;
         std::cout << "Posicion del elemento>>";
         std::cin >> pos;
+        Object* obj = nullptr;
         if (n == 1) {
 
-            _ArrayList->ObtenerAnterior(pos)->imprimir();
+            obj=_ArrayList->ObtenerAnterior(pos);
 
         }
         else {
 
-            _ListaEnlazda->ObtenerAnterior(pos)->imprimir();
+           obj= _ListaEnlazda->ObtenerAnterior(pos);
 
 
 
         }
+        if (obj != nullptr) {
+            obj->imprimir();
+
+            break;
+        }
+        std::cout << "Se ha salido del rango de la lista !!!\n";
+
         break;
     
     
@@ -264,9 +324,9 @@ int main()
   
 
 
-        std::cout << "Menú Principal\n"<<
-           " 1.Trabajar con Listas\n" <<"2.Trabajar con Pilas\n"<<
-           " 3.Trabajar con Colas\n"<<
+        std::cout <<"Menú Principal\n"<<
+           "1.Trabajar con Listas\n" <<"2.Trabajar con Pilas\n"<<
+           "3.Trabajar con Colas\n"<<
            "4.Salir \n";
         std::cout << "opcion>>";
         std::cin >> opcion;
@@ -290,7 +350,15 @@ int main()
             break;
         }
 
+        case 2: {
+        
 
+
+
+        
+            break;
+        
+        }
         default:
             break;
         }

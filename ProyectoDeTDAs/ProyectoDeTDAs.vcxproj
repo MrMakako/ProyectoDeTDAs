@@ -149,6 +149,7 @@
     <ClCompile Include="Nodo.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ProyectoDeTDAs.cpp" />
+    <ClCompile Include="Simbolo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Alumno.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="MetodosTDA.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="Simbolo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
