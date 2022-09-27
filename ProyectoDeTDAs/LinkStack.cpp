@@ -3,6 +3,16 @@
 
 
 
+bool LinkStack::equals(Object* _obj)
+{
+	return false;
+}
+
+std::string LinkStack::toString()
+{
+	return std::string();
+}
+
 int LinkStack::Tope()
 {
 	return 0;
@@ -56,6 +66,19 @@ void LinkStack::imprimir()
 
 	
 
+}
+
+void LinkStack::verTope()
+{
+
+	if (TopeNodo != nullptr) {
+
+		TopeNodo->getItem()->imprimir();
+	}
+	else {
+	
+		std::cout << "Lista vacia!\n";
+	}
 }
 
 Nodo* LinkStack::NodoTope()

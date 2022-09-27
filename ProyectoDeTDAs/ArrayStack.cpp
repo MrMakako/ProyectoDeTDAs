@@ -20,6 +20,18 @@ int ArrayStack::Tope()
 
 
 }
+void  ArrayStack::verTope()
+{
+	if (Pila[Tope()] != nullptr) {
+		Pila[Tope()]->imprimir();
+		// se muestra le tope  de la pila;
+
+	}
+	else {
+		std::cout << "Lista vacia!\n";
+	
+	}
+}
 //Este metodo saca un elemnto de la pila
 bool ArrayStack::Saca()
 {
@@ -85,4 +97,14 @@ void ArrayStack::imprimir()
 Nodo* ArrayStack::NodoTope()
 {
 	return nullptr;
+}
+
+bool ArrayStack::equals(Object* _obj)
+{
+	return false;
+}
+
+std::string ArrayStack::toString()
+{
+	return std::string();
 }

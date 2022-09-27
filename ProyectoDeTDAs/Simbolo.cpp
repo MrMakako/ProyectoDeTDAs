@@ -26,6 +26,14 @@ std::string Simbolo::toString()
 	return std::to_string(_Simbolo);
 }
 
+void Simbolo::imprimir()
+{
+
+	std::cout << "Simbolo: " << _Simbolo;
+}
+
+
+
 char Simbolo::getSimbolo()
 {
 	return _Simbolo;

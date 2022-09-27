@@ -141,9 +141,12 @@
   <ItemGroup>
     <ClCompile Include="Alumno.cpp" />
     <ClCompile Include="ArrayList.cpp" />
+    <ClCompile Include="ArrayQueue.cpp" />
     <ClCompile Include="ArrayStack.cpp" />
+    <ClCompile Include="LinkedQueue.cpp" />
     <ClCompile Include="LinkStack.cpp" />
     <ClCompile Include="ListaEnlazada.cpp" />
+    <ClCompile Include="MetodosCola.cpp" />
     <ClCompile Include="MetodosPila.cpp" />
     <ClCompile Include="MetodosTDA.cpp" />
     <ClCompile Include="Nodo.cpp" />
@@ -154,9 +157,12 @@
   <ItemGroup>
     <ClInclude Include="Alumno.h" />
     <ClInclude Include="ArrayList.h" />
+    <ClInclude Include="ArrayQueue.h" />
     <ClInclude Include="ArrayStack.h" />
+    <ClInclude Include="LinkedQueue.h" />
     <ClInclude Include="LinkStack.h" />
     <ClInclude Include="ListaEnlazada.h" />
+    <ClInclude Include="MetodosCola.h" />
     <ClInclude Include="MetodosPila.h" />
     <ClInclude Include="MetodosTDA.h" />
     <ClInclude Include="Nodo.h" />

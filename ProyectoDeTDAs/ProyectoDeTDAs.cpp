@@ -8,7 +8,31 @@
 #include "ListaEnlazada.h"
 #include "Alumno.h"
 #include<string>
+#include "Simbolo.h"
 int opcion;
+
+
+int PedirNumero(const char* mensaje) {
+    
+    int num;
+    std::cout << mensaje;
+    if (std::cin >> num) {
+        return num;
+    
+    }
+    std::cout << "Error introduzca un numero!\n";
+
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+    PedirNumero(mensaje);
+
+
+
+}
+bool MenuCola(int n) {
+
+    return false;
+}
 bool MenuPilas(int n,ArrayStack* _ArrayStack,LinkStack * _LinkStack) {
     std::cout << "Operaciones de Listas\n"
         << "1. “Empujar” (push)\n"
@@ -39,19 +63,81 @@ bool MenuPilas(int n,ArrayStack* _ArrayStack,LinkStack * _LinkStack) {
     case 1: {
 
 
+        char sim;
         
-        std:
-        _ArrayStack->Mete();
+        std::cout << "Intrduzca una letra";
+        std::cin >>sim;
+        _ArrayStack->Mete(new Simbolo(sim));
         
 
         break;
     
     }
+    case 2: {
+        if (n == 1) {
+
+            std::cout << "Se intentara sacar un elemento";
+            _ArrayStack->Saca();
+
+        }
+        else {
+            std::cout << "Se intentara sacar un elemento";
+            _LinkStack->Saca();
+
+        }
+        break;
+
+
+    }
+    case 3: {
+        if (n == 1) {
+        
+            _ArrayStack->verTope();
+        }
+        else {
+        
+            _LinkStack->verTope();
+        }
+    
+        break;
+    }
+    case 4: {
+
+        if (n == 1) {
+            if (_ArrayStack->Vacia()) {
+
+                std::cout << "la pila esta vacia!\n";
+            }
+        }
+        else {
+
+            if (_LinkStack->Vacia()) {
+            
+                std::cout << "la pila esta vacia!\n";
+            }
+
+        }
+        break;
+    
+    }
+    case 5: {
+    
+        if (n == 1) {
+        
+            _ArrayStack->imprimir();
+        }
+        else {
+            _LinkStack->imprimir();
+        
+        }
+    
+    }
+
     default:
         break;
     }
 
-
+    return false;
 }
 bool MenuListas(int n, ArrayList* _ArrayList, ListaEnlazada* _ListaEnlazda) {
 
@@ -309,15 +395,17 @@ bool MenuListas(int n, ArrayList* _ArrayList, ListaEnlazada* _ListaEnlazda) {
 
 int main()
 {
-    std::cout << "Hello World!\n";
+
 
 
     opcion = 0;
-
+    int opt = 0;
     //La opcion sera igual a 4 mientras termino el resot 
   
     ArrayList* ARRAY_LIST = new ArrayList();
     ListaEnlazada* LISTA_ENLAZADA = new ListaEnlazada();
+    ArrayStack* ARRAY_STACK = new ArrayStack();
+    LinkStack* LINK_STACK = new LinkStack();
 
     while (opcion != 4) {
     
@@ -328,8 +416,7 @@ int main()
            "1.Trabajar con Listas\n" <<"2.Trabajar con Pilas\n"<<
            "3.Trabajar con Colas\n"<<
            "4.Salir \n";
-        std::cout << "opcion>>";
-        std::cin >> opcion;
+            opcion= PedirNumero("Opcione>>");
          
         
         switch (opcion)
@@ -342,9 +429,9 @@ int main()
             std::cout << "Menu Tipo Lista:\n"
                 << "1.trabjar con ArrayList\n"
                 << "2.Trabajar con LinkedList\n";
-            int opt = 0;
-            std::cout << "opcion>>";
-            std::cin >> opt;
+          
+           
+            opt = PedirNumero("Opcione>>");
             MenuListas(opt, ARRAY_LIST, LISTA_ENLAZADA);
 
             break;
@@ -354,9 +441,20 @@ int main()
         
 
 
+            std::cout << "Menu Pilas------\n"
+                << "1.ArrayStack\n"
+                << "2.LinkStack\n";
+            opt = PedirNumero("Opcion>>");
+
+            MenuPilas(opt, ARRAY_STACK, LINK_STACK);
 
         
             break;
+        
+        }
+        case 3: {
+        
+                
         
         }
         default:

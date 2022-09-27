@@ -9,6 +9,7 @@ class MetodosPila
 	virtual bool Mete(Object* _obj)=0;
 	virtual bool Vacia()=0;
 	virtual Nodo* NodoTope()=0;
+	virtual void verTope()=0;
 
 
 

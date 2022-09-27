@@ -12,11 +12,20 @@ public:
 	ArrayStack();
 
 	 int Tope() override;
+	 void  verTope()override;
 	 bool Saca()override;
 	 bool Mete(Object* _obj) override;
 	 bool Vacia() override;
 	 void imprimir() override;
 	 Nodo* NodoTope()override;
+
+
+	  bool equals(Object* _obj) ;
+
+	  std::string toString() ;
+
+
+
 private:
 	int tope;
 
