@@ -11,9 +11,11 @@ int opcion;
 bool MenuListas(int n, ArrayList* _ArrayList, ListaEnlazada* _ListaEnlazda) {
 
     std::cout << "Operaciones de Listas\n"
-     <<"1. Insertar Elemento\n"
-     <<"2. Imprimir Elementos\n"
-     <<"3. Buscar Elemento\n"
+        << "1. Insertar Elemento\n"
+        << "2. Imprimir Elementos\n"
+        << "3. Buscar Elemento\n"
+        << "4. Borrar Elemento\n"
+        << "5.Ver si esta vacia\n"
      <<"6. Obtener Elemento por Posición\n"
      <<"7. Obtener Siguiente"
      << "8. Obtener Anterior"
@@ -29,56 +31,61 @@ bool MenuListas(int n, ArrayList* _ArrayList, ListaEnlazada* _ListaEnlazda) {
     
         std::cout << "Inserte una opcion valida, un numero del 1 al 10 opcion>>";
         std::cin >> opt;
+        std::cin.clear();
     }
     switch (opt)
     {
 
     case 1: {
+   
         std::cout << "Nombre del alumno:>>";
-        std::string nombre=nullptr;
-        std::cin>>nombre;
+        std::string  nombre="";
+        std::cin >> nombre;
+        std::cin.clear();
         int id = 0;
         std::cout << "Identidad del alumno:>>";
         std::cin >> id;
         int pos = 0;
-
+        std::cin.clear();
 
         std::cout << "posicion para insertar el alumno>>";
         std::cin >> pos;
- 
+
 
         Alumno* NuevoAlumno = new Alumno(id, nombre);
         if (n == 1) {
 
             if (_ArrayList->Localiza(NuevoAlumno)>0) {
                 //ya esta en la lista
+                std::cout << "No se pudo agregar\n";
                 break;
             }
-      
+
             _ArrayList->Inserta(NuevoAlumno, pos);
-         
-            
+
+
         }
         else {
-            
-            
 
 
 
-            if (_ListaEnlazda->Localiza(NuevoAlumno)>0) {
+
+
+            if (_ListaEnlazda->Localiza(NuevoAlumno) > 0) {
                 //ya esta en la lista
+                std::cout << "No se pudo agregar\n";
                 break;
             }
             _ListaEnlazda->Inserta(NuevoAlumno, pos);
 
-        
+
         }
         break;
 
 
     }
     case 2: {
-    
+
         if (n == 1) {
             _ArrayList->Imprimir();
         }
@@ -88,16 +95,16 @@ bool MenuListas(int n, ArrayList* _ArrayList, ListaEnlazada* _ListaEnlazda) {
         }
         break;
     }
-      case3: {
+    case 3: {
 
 
           int id = 0;
           std::cout << "Id del alumno a buscar:";
           std::cin >> id;
-          Alumno* Alumno_Buscar=new Alumno(id,"");
-    
+          Alumno* Alumno_Buscar = new Alumno(id, "");
+
           if (n == 1) {
-               Alumno_Buscar=(Alumno*)_ArrayList->Obtener(_ArrayList->Localiza(Alumno_Buscar));
+              Alumno_Buscar = (Alumno*)_ArrayList->Obtener(_ArrayList->Localiza(Alumno_Buscar));
           }
           else {
 
@@ -106,10 +113,128 @@ bool MenuListas(int n, ArrayList* _ArrayList, ListaEnlazada* _ListaEnlazda) {
           }
 
           if (Alumno_Buscar != nullptr) {
-          
-              std::cout << Alumno_Buscar->toString()<<"\n";
+
+              std::cout << Alumno_Buscar->toString() << "\n";
           }
           break;
+    }
+
+
+    case 4: {
+        int pos = 0;
+        std::cout << "Posicion del elemento> a eliminar>>";
+        std::cin >> pos;
+        //obtener elemento por posicion.
+        if (n == 1) {
+
+            _ArrayList->suprime(pos);
+
+        }
+        else {
+
+            _ListaEnlazda->suprime(pos);
+
+
+
+        }
+        break;
+
+    }
+    case 5: {
+
+        if (n == 2) {
+            if (_ArrayList->EstaVacia()) {
+                std::cout << "Lista vacia\n";
+            }
+
+        }
+        else {
+            if (_ListaEnlazda->EstaVacia()) {
+                std::cout << "Lista vacia\n";
+            }
+
+
+        }
+
+        break;
+
+
+    }
+    case 6: {
+        int pos = 0;
+        std::cout << "Posicion del elemento>>";
+        std::cin >> pos;
+        //obtener elemento por posicion.
+        if (n == 1) {
+
+            _ArrayList->Obtener(pos)->imprimir();
+
+        }
+        else {
+
+            _ListaEnlazda->Obtener(pos)->imprimir();
+
+
+
+        }
+        break;
+
+
+
+    }
+    case 7: {
+        int pos = 0;
+        std::cout << "Posicion del elemento>>";
+        std::cin >> pos;
+        if (n == 1) {
+
+            _ArrayList->ObtenerSiguiente(pos)->imprimir();
+
+        }
+        else {
+
+            _ListaEnlazda->ObtenerSiguiente(pos)->imprimir();
+
+
+
+        }
+
+    
+        break;
+    }
+    case 8: {
+        int pos = 0;
+        std::cout << "Posicion del elemento>>";
+        std::cin >> pos;
+        if (n == 1) {
+
+            _ArrayList->ObtenerAnterior(pos)->imprimir();
+
+        }
+        else {
+
+            _ListaEnlazda->ObtenerAnterior(pos)->imprimir();
+
+
+
+        }
+        break;
+    
+    
+    }
+    case 9: {
+        if (n == 2) {
+            _ArrayList->anula();
+
+        
+        }
+        else {
+            _ListaEnlazda->anula();
+        
+        }
+
+        break;
+    
     }
     default:
         break;
@@ -131,10 +256,12 @@ int main()
 
     //La opcion sera igual a 4 mientras termino el resot 
   
-
+    ArrayList* ARRAY_LIST = new ArrayList();
+    ListaEnlazada* LISTA_ENLAZADA = new ListaEnlazada();
 
     while (opcion != 4) {
     
+  
 
 
         std::cout << "Menú Principal\n"<<
@@ -149,16 +276,19 @@ int main()
         {
 
 
-        case 1:
+        case 1: {
 
 
             std::cout << "Menu Tipo Lista:\n"
-                <<"1.trabjar con ArrayList\n"
+                << "1.trabjar con ArrayList\n"
                 << "2.Trabajar con LinkedList\n";
+            int opt = 0;
+            std::cout << "opcion>>";
+            std::cin >> opt;
+            MenuListas(opt, ARRAY_LIST, LISTA_ENLAZADA);
 
-
-
-
+            break;
+        }
 
 
         default:

@@ -9,7 +9,7 @@ class ArrayList :public MetodosTDA, public Object
 public:
 
 	ArrayList();
-
+	
 	bool Inserta(Object* _obj, int pos);
 	bool suprime(int pos);
 	int Localiza(Object* _obj)override;

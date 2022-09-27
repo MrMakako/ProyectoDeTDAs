@@ -1,4 +1,5 @@
 #include "Alumno.h"
+#include <iostream>
 
 Alumno::Alumno()
 {
@@ -20,18 +21,24 @@ bool Alumno::equals(Object* _obj)
 {
 
 	Alumno* AlumnoC= (Alumno*)_obj;
-	return ID;
+	
+	return (ID == AlumnoC->getID());
 }
 
 void Alumno::imprimir()
 {
 
 
+	std::cout<< toString();
 
 
 
 
+}
 
+int Alumno::getID()
+{
+	return ID;
 }
 
 std::string Alumno::toString()

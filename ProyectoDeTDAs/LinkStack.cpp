@@ -3,6 +3,11 @@
 
 
 
+int LinkStack::Tope()
+{
+	return 0;
+}
+
 bool LinkStack::Saca()
 {
 
@@ -19,10 +24,6 @@ bool LinkStack::Saca()
 
 }
 
-bool LinkStack::Mete(Object* _obj)
-{
-	return false;
-}
 
 bool LinkStack::Vacia()
 {

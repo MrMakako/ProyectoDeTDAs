@@ -32,8 +32,9 @@ bool ArrayList::Inserta(Object* _obj, int pos)
 	//Evaluamos si pos es mayor o igual  1 y menor o igual a 10;	
 		if (pos > ultimo+1) {
 			//Lista llena
+	
+			std::cout << "Lista llena o numero fuera de rango \n";
 			return false;
-			std::cout << "Lista llena\n";
 		}
 
 		//Evaluar si la lista esta lleno 
@@ -93,6 +94,8 @@ int ArrayList::Localiza(Object* _obj)
 		if (Array[i]->equals(_obj)) {
 		
 			return i + 1;
+
+			std::cout << "Se encontro el elemento\n";
 		}
 	//revisamosa hast ale ultimo elemento y retornamos us ocicion si pertenence a la lista!!!!/
 	}
@@ -100,7 +103,7 @@ int ArrayList::Localiza(Object* _obj)
 
 
 	//no se encontro el elemento en la lista
-
+	std::cout << "No se Encontro el elemento\n";
 	return 0;
 }
 
@@ -114,6 +117,12 @@ void ArrayList::Imprimir()
 		Array[i];
 		std::cout << Array[i]->toString() << i << std::endl;
 	
+	}
+
+
+	if (EstaVacia()) {
+	
+		std::cout << "Lista Vacia!!!\n";
 	}
 
 

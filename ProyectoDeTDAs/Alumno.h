@@ -21,7 +21,7 @@ public:
 
 	void imprimir() override;
 
-
+	int getID();
 
 private:
 
