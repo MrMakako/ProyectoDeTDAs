@@ -5,7 +5,7 @@
 #include "MetodosCola.h"
 
 
-class ArrayQueue : public MetodosCola
+class ArrayQueue : public MetodosCola,Object
 {
 public:
 	ArrayQueue();
@@ -22,7 +22,13 @@ public:
 
 	//Queue
 	 void pone_en_cola(Object*)override;
+	 bool equals(Object* _obj)override;
 
+	 std::string toString() override;
+
+
+
+	 void imprimir()override;
 	 bool vacia()override;
 protected:
 	int inicio;
