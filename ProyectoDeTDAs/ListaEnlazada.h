@@ -3,8 +3,6 @@
 #include "iostream"
 #include "Nodo.h"
 #ifndef LISTAENLAZADA_H
-#define LISTAENLAZADA_H
-
 class ListaEnlazada:public MetodosTDA,public Object
 {
 	int cantidad;
