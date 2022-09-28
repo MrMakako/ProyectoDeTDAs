@@ -51,29 +51,32 @@ bool ArrayList::suprime(int pos)
 	}
 	return false;
 }
-int ArrayList::Localiza(Object* _obj)
-{
-	for (int i = 0; i < ultimo; i++) {
-		if (Array[i]->equals(_obj)) {
-			return i + 1;
-			std::cout << "Se encontro el elemento\n";
-		}
-	//revisamosa hast ale ultimo elemento y retornamos us ocicion si pertenence a la lista!!!!/
-	}
-	//no se encontro el elemento en la lista
-	std::cout << "No se Encontro el elemento\n";
-	return 0;
-}
-void ArrayList::Imprimir()
-{
-	for (int i = 0; i < ultimo;i++) {
-		Array[i];
-		std::cout << Array[i]->toString() << i << std::endl;
-	}
+int ArrayList::Localiza(Object* _obj){
 	if (EstaVacia()) {
+		//no se encontro el elemento en la lista
+		return 0;
+	}
+	else {
+		for (int i = 0; i < ultimo; i++) {
+			if (Array[i]->equals(_obj)) {
+				return i + 1;
+			}
+			//revisamosa hasta el ultimo elemento y retornamos su posicion si pertenence a la lista!!!!/
+		}
+	}
+}
+
+void ArrayList::Imprimir(){
+	if (EstaVacia()){
 		std::cout << "Lista Vacia!!!\n";
 	}
+	else {
+		for (int i = 0; i < ultimo; i++) {
+			std::cout << Array[i]->toString() << i << std::endl;
+		}
+	}
 }
+
 Object* ArrayList::Obtener(int pos)
 {
 	if (pos >= 1 && pos <= ultimo) {
@@ -106,8 +109,7 @@ Object* ArrayList::ObtenerAnterior(int pos)
 	};
 	return nullptr;
 }
-bool ArrayList::EstaVacia()
-{
+bool ArrayList::EstaVacia(){
 	return (ultimo == 0);
 }
 bool ArrayList::anula()
@@ -121,6 +123,7 @@ bool ArrayList::anula()
 		Array[i] = nullptr;
 	}
 	std::cout << "La lista ha sido vaciada\n";
+	ultimo = 0;
 	return true;
 }
 bool ArrayList::equals(Object* _obj)

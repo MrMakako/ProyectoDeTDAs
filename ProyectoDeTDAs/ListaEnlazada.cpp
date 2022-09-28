@@ -100,12 +100,10 @@ int ListaEnlazada::Localiza(Object* _obj)
 		i++;
 		if (NodoActual->getItem()->equals(_obj)) {
 			return i;
-			//Flta definir el metodo equals recueda definirlo////////
-			std::cout << "Elemento  ha sido Encontrado\n";
+			//Falta definir el metodo equals recueda definirlo////////
 		}
 		NodoActual = NodoActual->getSiguiente();
 	}
-	std::cout << "El elemento no h asiod localizado\n";
 	return 0;
 }
 void ListaEnlazada::Imprimir()
@@ -127,7 +125,6 @@ Object* ListaEnlazada::Obtener(int pos)
 		}
 		Actual = Actual->getSiguiente();
 	}
-	std::cout << "No se ha podido localizar el objeto";
 	return nullptr;
 }
 Object* ListaEnlazada::ObtenerSiguiente(int pos)
@@ -167,37 +164,35 @@ Object* ListaEnlazada::ObtenerAnterior(int pos)
 	std::cout << "posicion no encontrada!!!\n";
 	return nullptr;
 }
+
 bool ListaEnlazada::EstaVacia()
 {
 	return NodoInicial == nullptr;
 }
-bool ListaEnlazada::anula()
-{
-	Nodo* NodoActual = NodoInicial;
-	//Nodo inicial
-	Nodo* Temp;
-	//Nodo Tempoaral para borrar
-	while (NodoActual != nullptr) {
-		//Mientras el nodo actual sea de difenrete de nulo
-		NodoActual = NodoActual->getSiguiente();
-		///obtenemos el siguiente nodo
-		if (NodoActual != nullptr) {
-			std::cout << "Elimnando elemntos (Lista Enlazada)\n";
-			Temp = NodoActual;
-			//Borramos el actual;
-			delete Temp;
-		}
+
+bool ListaEnlazada::anula(){
+	Nodo* Actual = NodoInicial;
+	Nodo* temp;
+	while (Actual != nullptr) {
+		temp = Actual;
+		Actual = Actual->getSiguiente();
+		delete temp;
 	}
-	return false;
+	NodoInicial = nullptr;
+	std::cout << "Se anulo la lista con exito!!!\n";
+	return true;
 }
+
 bool ListaEnlazada::equals(Object* _obj)
 {
 	return false;
 }
+
 std::string ListaEnlazada::toString()
 {
 	return std::string();
 }
+
 void ListaEnlazada::imprimir()
 {
 }

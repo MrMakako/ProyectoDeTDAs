@@ -19,9 +19,9 @@ public:
 	Object* ObtenerAnterior(int pos);
 	bool EstaVacia()override;
 	bool anula()override;
-	 bool equals(Object* _obj)override;
+	bool equals(Object* _obj)override;
 	std::string toString() override;
-	 void imprimir()  override;
+	void imprimir()  override;
 private:
 };
 #endif // !LISTAENLAZADA_H

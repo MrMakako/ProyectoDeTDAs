@@ -207,12 +207,10 @@ bool MenuListas(int n, ArrayList* _ArrayList, ListaEnlazada* _ListaEnlazda) {
                 std::cout << "Nombre del alumno:>>";
                 std::string  nombre = "";
                 std::cin >> nombre;
-                std::cin.clear();
                 int id = 0;
                 std::cout << "Identidad del alumno:>>";
                 std::cin >> id;
                 int pos = 0;
-                std::cin.clear();
                 std::cout << "posicion para insertar el alumno>>";
                 std::cin >> pos;
                 Alumno* NuevoAlumno = new Alumno(id, nombre);
@@ -282,7 +280,7 @@ bool MenuListas(int n, ArrayList* _ArrayList, ListaEnlazada* _ListaEnlazda) {
             break;
         }
         case 5: {
-            if (n == 2) {
+            if (n == 1) {
                 if (_ArrayList->EstaVacia()) {
                     std::cout << "Lista vacia\n";
                 }
@@ -350,7 +348,7 @@ bool MenuListas(int n, ArrayList* _ArrayList, ListaEnlazada* _ListaEnlazda) {
             break;
         }
         case 9: {
-            if (n == 2) {
+            if (n == 1) {
                 _ArrayList->anula();
             }
             else {
