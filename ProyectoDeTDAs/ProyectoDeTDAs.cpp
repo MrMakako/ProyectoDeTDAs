@@ -27,10 +27,8 @@ int PedirNumero(const char* mensaje) {
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
     PedirNumero(mensaje);
-
-
-
 }
+
 bool MenuCola(int n, ArrayQueue * _ArrayQueue,LinkedQueue* _LinkedQueu) {
     bool menu = true;
     while (menu) {
