@@ -21,13 +21,10 @@ Object* LinkedQueue::frente() {
 }
 //imprimira la cola en ordne de llegada
 void LinkedQueue::imprime_cola() {
-	Nodo* Actual=Frente;
-	int i = 1;
-	while (Actual != nullptr) {
-		std::cout << "posicion:" << i;
-		Actual->getItem()->imprimir();
-		Actual = Frente->getAnterior();
-		i++;
+	Nodo* aux = Frente;
+	while (aux != nullptr) {
+		aux->getItem()->imprimir();
+		aux = aux->getSiguiente();
 	}
 }
 //Elimnara todos los nodos en la cola  empezando desde el frente
@@ -43,7 +40,7 @@ void LinkedQueue::anula() {
 //Dequeue
 Object* LinkedQueue::saca_de_cola() {
 	Nodo* _nodo_salida = Frente;
-	Frente = Frente->getAnterior();
+	Frente = Frente->getSiguiente();
 	delete _nodo_salida;
 	return nullptr;
 }
@@ -60,14 +57,15 @@ void LinkedQueue::imprimir()
 }
 //Queue
 void LinkedQueue::pone_en_cola(Object* _obj) {
-	Nodo* NuevoNodo = new Nodo(_obj);
-	if (final == nullptr) {
-		final = NuevoNodo;
-		Frente = NuevoNodo;
+	Nodo* _nodo = new Nodo(_obj);
+	if (Frente == nullptr) {
+		Frente = _nodo;
+		final = _nodo;
 	}
 	else {
-		final->setAnterior(NuevoNodo);
-		NuevoNodo->setSiguiente(final);
+		_nodo->setAnterior(final);
+		final->setSiguiente(_nodo);
+		final = _nodo;
 	}
 }
 bool LinkedQueue::vacia() {

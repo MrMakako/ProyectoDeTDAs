@@ -11,6 +11,7 @@ ArrayQueue::ArrayQueue()
 	for (int i = 0; i < capacidad; i++)
 		array[i] = nullptr;
 }
+
 ArrayQueue::~ArrayQueue()
 {
 	for (int i = 0; i < capacidad; i++) {
@@ -21,12 +22,18 @@ ArrayQueue::~ArrayQueue()
 	//libera el arreglo
 	delete[] array;
 }
+
 Object* ArrayQueue::frente() {
-	return array[inicio];
+	return array[0];
 }
+
 void ArrayQueue::imprime_cola() {
-	for (int i = 0; i < final; i++) {
-		array[i]->imprimir();
+	if (array[0] != nullptr) {
+		for (int i = 0; i < final; i++) {
+			if (array[i] != nullptr) {
+				array[i]->imprimir();
+			}
+		}
 	}
 }
 void ArrayQueue::anula() {
@@ -38,36 +45,27 @@ void ArrayQueue::anula() {
 }
 //Dequeue
 Object* ArrayQueue::saca_de_cola() {
-	if (!vacia()) {
-		std::cout << "Se esta sacando un elemento >>";
-		array[inicio]->imprimir();
-		array[inicio] = nullptr;
-			final--;
-			n--;
-			for (int i =inicio; i <final ; i++) {
-				//movemos los numeros 
-				array[i] = array[i + 1];
-				std::cout << "SE REALIZAN CORRIMEINTOS COLA\n";
-				//partimos desde la casilla y realizamos corrimientos mientras la casilla sea menor al ultimo elemento , cuadno llegemos al ultimo terminan los cocrrimnetos.
-			}
+	Object* aux = array[inicio];
+	for (int i = inicio; i < capacidad; i++) {
+		array[i] = array[i + 1];
 	}
-	else {
-		std::cout<<"Cola vacia!!!\n";
-	}
-	return nullptr;
+	final--;
+	n--;
+	return aux;
 }
 //Queue
 void ArrayQueue::pone_en_cola(Object* _obj) {
 	if (vacia()) {
 		std::cout << "Se inserto exitosamente!\n";
 		array[inicio] = _obj;
+		final++;
 		n++;
 	}
 	else {
 		if (final < capacidad - 1) {
 			std::cout << "Se inserto exitosamente!\n";
-			final++;
 			array[final] = _obj;
+			final++;
 			n++;
 		}
 		else {
@@ -75,17 +73,21 @@ void ArrayQueue::pone_en_cola(Object* _obj) {
 		}
 	}
 }
+
 bool ArrayQueue::equals(Object* _obj)
 {
 	return false;
 }
+
 std::string ArrayQueue::toString()
 {
 	return std::string();
 }
+
 void ArrayQueue::imprimir()
 {
 }
+
 bool ArrayQueue::vacia() {
 	return array[inicio]==nullptr;
 }
