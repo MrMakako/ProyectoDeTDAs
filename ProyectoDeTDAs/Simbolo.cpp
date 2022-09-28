@@ -1,7 +1,6 @@
 #include "Simbolo.h"
 
-Simbolo::Simbolo()
-{
+Simbolo::Simbolo(){
 	_Simbolo = ' ';
 }
 Simbolo::Simbolo(char _Simbolo)
@@ -19,7 +18,7 @@ std::string Simbolo::toString()
 }
 void Simbolo::imprimir()
 {
-	std::cout << "Simbolo: " << _Simbolo;
+	std::cout << "Simbolo " << _Simbolo << std::endl;
 }
 char Simbolo::getSimbolo()
 {

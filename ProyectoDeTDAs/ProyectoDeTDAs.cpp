@@ -113,29 +113,33 @@ bool MenuCola(int n, ArrayQueue * _ArrayQueue,LinkedQueue* _LinkedQueu) {
 bool MenuPilas(int n,ArrayStack* _ArrayStack,LinkStack * _LinkStack) {
     bool menu = true;
     while (menu) {
-        std::cout << "Operaciones de Listas\n" << "1. “Empujar” (push)\n" << "2. 'Sacar'(pop) \n" << "3. Ver tope\n" << "4. Ver si esta vacia\n" << "5. Imprimir Elementos\n" << "6. regresar al menu principal\n ";
+        std::cout << "\nOperaciones de Listas\n" << "1. Empujar (push)\n" << "2. Sacar (pop) \n" << "3. Ver tope\n" << "4. Ver si esta vacia\n" << "5. Imprimir Elementos\n" << "6. regresar al menu principal\n ";
         int opt = 0;
         opt = PedirNumero("Opcion>>");
         while (opt < 0 || opt>6) {
             std::cout << "Inserte una opcion valida, un numero del 1 al 6 opcion>>";
             std::cin >> opt;
-            std::cin.clear();
         }
         switch (opt){
         case 1: {
             char sim;
-            std::cout << "Intrduzca una letra";
+            std::cout << "Introduzca una letra: ";
             std::cin >> sim;
-            _ArrayStack->Mete(new Simbolo(sim));
+			if (n == 1) {
+				_ArrayStack->Mete(new Simbolo(sim));
+			}
+			else {
+				_LinkStack->Mete(new Simbolo(sim));
+			}
             break;
         }
         case 2: {
             if (n == 1) {
-                std::cout << "Se intentara sacar un elemento";
+                std::cout << "Se intentara sacar un elemento" << std::endl;
                 _ArrayStack->Saca();
             }
             else {
-                std::cout << "Se intentara sacar un elemento";
+                std::cout << "Se intentara sacar un elemento" << std::endl;
                 _LinkStack->Saca();
             }
             break;
@@ -154,10 +158,16 @@ bool MenuPilas(int n,ArrayStack* _ArrayStack,LinkStack * _LinkStack) {
                 if (_ArrayStack->Vacia()) {
                     std::cout << "la pila esta vacia!\n";
                 }
+                else {
+					std::cout << "La pila no esta vacia!\n";
+                }
             }
             else {
                 if (_LinkStack->Vacia()) {
                     std::cout << "la pila esta vacia!\n";
+                }
+                else {
+					std::cout << "La pila no esta vacia!\n";
                 }
             }
             break;
@@ -169,10 +179,12 @@ bool MenuPilas(int n,ArrayStack* _ArrayStack,LinkStack * _LinkStack) {
             else {
                 _LinkStack->imprimir();
             }
+            break;
         }
         case 6: {
             menu = false;
             return false;
+            break;
         }
         default:
             break;
@@ -377,17 +389,17 @@ int main()
     LinkedQueue* LINKED_QUEUE = new LinkedQueue();
     ArrayQueue* ARRAY_QUEUE = new ArrayQueue();
     while (opcion != 4) {
-        std::cout << "Menú Principal\n" <<
+        std::cout << "\nMenu Principal\n" <<
             "1.Trabajar con Listas\n" << "2.Trabajar con Pilas\n" <<
             "3.Trabajar con Colas\n" <<
-            "4.Salir \n";
-        opcion = PedirNumero("Opcione>>");
+            "4. Salir \n";
+        opcion = PedirNumero("Opciones>>");
         switch (opcion) {
         case 1: {
             opt = 0;
             while (opt != 3) {
-                std::cout << "Menu Tipo Lista:\n"
-                    << "1.trabjar con ArrayList\n"
+                std::cout << "\nMenu Tipo Lista:\n"
+                    << "1.Trabajar con ArrayList\n"
                     << "2.Trabajar con LinkedList\n"
                     << "3.Regresar al menu\n";
                 opt = PedirNumero("Opcione>>");
@@ -400,7 +412,7 @@ int main()
         case 2: {
             opt = 0;
             while (opt != 3) {
-                std::cout << "Menu Pilas------\n"
+                std::cout << "\nMenu Pilas------\n"
                     << "1.ArrayStack\n"
                     << "2.LinkStack\n"
                     << "3.Regresar al menu\n";
@@ -414,7 +426,7 @@ int main()
         case 3: {
             opt = 0;
             while (opt != 3) {
-                std::cout << "Menu Colas------\n" << "\n1.ArrayQueue" << "\n2.LinkedQueue" << "\n3.Regresar al menu\n";
+                std::cout << "\nMenu Colas------\n" << "\n1.ArrayQueue" << "\n2.LinkedQueue" << "\n3.Regresar al menu\n";
                 opt = PedirNumero("opcion>>");
                 if (opt >= 1 && opt <= 2) {
                     MenuCola(opt, ARRAY_QUEUE, LINKED_QUEUE);

@@ -5,14 +5,17 @@ bool LinkStack::equals(Object* _obj)
 {
 	return false;
 }
+
 std::string LinkStack::toString()
 {
 	return std::string();
 }
+
 int LinkStack::Tope()
 {
 	return 0;
 }
+
 bool LinkStack::Saca()
 {
 	if (Vacia()) {
@@ -28,6 +31,7 @@ bool LinkStack::Vacia()
 {
 	return TopeNodo==nullptr;
 }
+
 bool LinkStack::Mete(Object* _obj) {
 	Nodo* NuevoNodo = new Nodo(_obj);
 	if (Vacia()) {
@@ -37,14 +41,15 @@ bool LinkStack::Mete(Object* _obj) {
 	NuevoNodo->setAnterior(TopeNodo);
 	TopeNodo = NuevoNodo;
 }
-void LinkStack::imprimir()
-{
-	Nodo* Actual=TopeNodo;
-	while (Actual != nullptr) {
-		Actual->getItem()->imprimir();
-		Actual = TopeNodo->getAnterior();
+
+void LinkStack::imprimir(){
+	Nodo* Temp = TopeNodo;
+	while (Temp != nullptr) {
+		Temp->getItem()->imprimir();
+		Temp = Temp->getAnterior();
 	}
 }
+
 void LinkStack::verTope()
 {
 	if (TopeNodo != nullptr) {

@@ -12,8 +12,9 @@ int ArrayStack::Tope()
 }
 void  ArrayStack::verTope()
 {
-	if (Pila[tope] != nullptr) {
-		Pila[tope]->imprimir();
+	if (Pila[tope - 1] != nullptr && tope != 0) {
+		std::cout << "El tope es: ";
+		Pila[tope - 1]->imprimir();
 		// se muestra le tope  de la pila;
 	}
 	else {
@@ -27,13 +28,15 @@ bool ArrayStack::Saca()
 		std::cout << "Error Lsita esta vacia";
 		return false;
 	}
-	tope++;
+	tope--;
 	return false;
 }
 bool ArrayStack::Mete(Object* _obj)
 {
-	if (tope <long_max) {
-		Pila[Tope()]=_obj;
+	int top = Tope();
+	if (tope < long_max) {
+		
+		Pila[top]=_obj;
 		tope++;
 	}
 	else {
@@ -45,12 +48,16 @@ bool ArrayStack::Vacia()
 {
 	return tope == 0;
 }
+
 void ArrayStack::imprimir()
 {
-	for (int i = long_max - 1; i >=0; i++) {
-		std::cout << i << "." << Pila[i];
+	if (tope != 0) {
+		for (int i = 0; i < tope; i++) {
+			Pila[i]->imprimir();
+		}
 	}
 }
+
 Nodo* ArrayStack::NodoTope()
 {
 	return nullptr;
