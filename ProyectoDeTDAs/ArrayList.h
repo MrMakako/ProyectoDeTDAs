@@ -1,15 +1,11 @@
 #pragma once
-
-
 #include "MetodosTDA.h"
 #include "iostream"
+
 class ArrayList :public MetodosTDA, public Object
 {
-
 public:
-
 	ArrayList();
-	
 	bool Inserta(Object* _obj, int pos);
 	bool suprime(int pos);
 	int Localiza(Object* _obj)override;
@@ -20,33 +16,11 @@ public:
 	 bool EstaVacia()override ;
 	 bool anula();
 	bool equals(Object* _obj)override;
-
 	std::string toString() override;
-
 	 void imprimir()override;
-
 private:
-
 	Object** Array;
 	int capacidad;
 	int n;
 	int ultimo;
-	
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
 };
-
