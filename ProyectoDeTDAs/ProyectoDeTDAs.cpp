@@ -246,7 +246,6 @@ bool MenuListas(int n, ArrayList* _ArrayList, ListaEnlazada* _ListaEnlazda) {
             std::cin.clear();
         }
 
-
         switch (opt){
 
         case 1: {
