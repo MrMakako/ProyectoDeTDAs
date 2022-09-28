@@ -109,19 +109,11 @@ int ArrayList::Localiza(Object* _obj)
 
 void ArrayList::Imprimir()
 {
-
-
 	for (int i = 0; i < ultimo;i++) {
-
-
 		Array[i];
 		std::cout << Array[i]->toString() << i << std::endl;
-	
 	}
-
-
 	if (EstaVacia()) {
-	
 		std::cout << "Lista Vacia!!!\n";
 	}
 
@@ -142,19 +134,6 @@ Object* ArrayList::Obtener(int pos)
 	//Fuera de rango
 
 	std::cout << "Fuera de Rango imposible obtener ese valor \n";
-
-
-
-
-
-
-
-
-
-
-
-
-
 	return nullptr;
 }
 
@@ -199,7 +178,7 @@ Object* ArrayList::ObtenerAnterior(int pos)
 
 bool ArrayList::EstaVacia()
 {
-	return (ultimo ==0);
+	return (ultimo == 0);
 }
 
 bool ArrayList::anula()
@@ -210,14 +189,10 @@ bool ArrayList::anula()
 
 		std::cout << "La lista ya esta vacia\n";
 		return false;
-	
 	}
-	while (ultimo > 0) {
-		
-		suprime(ultimo);
-		std::cout << "vaciando la lista";
-
-	
+	for(int i = 0; i < ultimo; i++){
+		delete Array[i];
+		Array[i] = nullptr;
 	}
 
 

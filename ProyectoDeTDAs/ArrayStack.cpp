@@ -5,25 +5,17 @@ ArrayStack::ArrayStack()
 	long_max = 10;
 	tope = 0;
 	Pila = new Object*[long_max];
-
-
-
-
 }
 
 int ArrayStack::Tope()
 {
 	return tope;
-
-
-
-
-
 }
+
 void  ArrayStack::verTope()
 {
-	if (Pila[Tope()] != nullptr) {
-		Pila[Tope()]->imprimir();
+	if (Pila[tope] != nullptr) {
+		Pila[tope]->imprimir();
 		// se muestra le tope  de la pila;
 
 	}
