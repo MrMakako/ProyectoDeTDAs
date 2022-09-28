@@ -3,15 +3,13 @@
 #include "iostream"
 #include "Nodo.h"
 #ifndef LISTAENLAZADA_H
+
 class ListaEnlazada:public MetodosTDA,public Object
 {
 	int cantidad;
 	Nodo* NodoInicial;
-
 public:
-
 	ListaEnlazada();
-
 	bool Inserta(Object* _obj, int pos);
 	bool suprime(int pos);
 	int Localiza(Object* _obj)override;
@@ -22,17 +20,8 @@ public:
 	bool EstaVacia()override;
 	bool anula()override;
 	 bool equals(Object* _obj)override;
-
 	std::string toString() override;
 	 void imprimir()  override;
-
 private:
-
-
-
-
 };
-
-
 #endif // !LISTAENLAZADA_H
-
