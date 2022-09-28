@@ -9,7 +9,7 @@ ArrayQueue::ArrayQueue()
 	capacidad = 10;
 	array = new Object * [capacidad];
 	for (int i = 0; i < capacidad; i++)
-		array[i] = NULL;
+		array[i] = nullptr;
 }
 
 ArrayQueue::~ArrayQueue()
@@ -55,7 +55,7 @@ Object* ArrayQueue::saca_de_cola() {
 		
 			final--;
 		
-
+			n--;
 			for (int i =inicio; i <final ; i++) {
 				//movemos los numeros 
 				array[i] = array[i + 1];
@@ -79,14 +79,16 @@ void ArrayQueue::pone_en_cola(Object* _obj) {
 		std::cout << "Se inserto exitosamente!\n";
 		array[inicio] = _obj;
 
-		
+		n++;
 	}
 	else {
 		if (final < capacidad - 1) {
 		
 			std::cout << "Se inserto exitosamente!\n";
+			
 			final++;
 			array[final] = _obj;
+			n++;
 		}
 		else {
 			std::cout << " no se puede insertar mas cola llena!!\n";
@@ -97,6 +99,20 @@ void ArrayQueue::pone_en_cola(Object* _obj) {
 
 }
 
+bool ArrayQueue::equals(Object* _obj)
+{
+	return false;
+}
+
+std::string ArrayQueue::toString()
+{
+	return std::string();
+}
+
+void ArrayQueue::imprimir()
+{
+}
+
 bool ArrayQueue::vacia() {
-	return n==0;
+	return array[inicio]==nullptr;
 }

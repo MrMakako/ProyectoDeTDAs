@@ -62,6 +62,20 @@ Object* LinkedQueue::saca_de_cola() {
 	return nullptr;
 }
 
+bool LinkedQueue::equals(Object* _obj)
+{
+	return false;
+}
+
+std::string LinkedQueue::toString()
+{
+	return std::string();
+}
+
+
+void LinkedQueue::imprimir()
+{
+}
 
 //Queue
 void LinkedQueue::pone_en_cola(Object* _obj) {

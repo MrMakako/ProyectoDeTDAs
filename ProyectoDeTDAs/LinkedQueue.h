@@ -19,7 +19,13 @@ public:
 
 	//Dequeue
 	 Object* saca_de_cola()override;
+	  bool equals(Object* _obj)override;
 
+	  std::string toString() override ;
+
+
+
+	  void imprimir()override;
 	//Queue
 	 void pone_en_cola(Object*)override;
 

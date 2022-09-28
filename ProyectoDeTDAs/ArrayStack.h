@@ -19,7 +19,7 @@ public:
 	 void imprimir() override;
 	 Nodo* NodoTope()override;
 
-
+	
 	  bool equals(Object* _obj) ;
 
 	  std::string toString() ;
